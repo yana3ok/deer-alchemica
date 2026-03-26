@@ -1,0 +1,76 @@
+/* Aboutページ：全体の背景 */
+body.about-body {
+    background-color: #f4ece0;
+    min-height: 100vh;
+}
+
+/* 紋章からボタンまでを包む「たった一つの飾り枠」 */
+.about-main-container {
+    max-width: 850px;
+    margin: 120px auto 150px;
+    padding: 80px 60px;
+    background: transparent;
+    border: 4px double #d2b48c; 
+    border-radius: 4px;
+    position: relative;
+}
+
+/* 紋章：枠の中の中央に配置 */
+.about-emblem {
+    display: block;
+    width: 180px;
+    height: auto;
+    margin: 0 auto 30px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
+
+/* タイトル */
+.page-title {
+    font-family: 'Lobster', cursive !important;
+    font-size: 48px;
+    color: #8b6d31;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* 本文：読みやすさを重視 */
+.about-content-text {
+    line-height: 2.2;
+    color: #4e342e;
+    font-size: 18px;
+    margin-bottom: 25px;
+    text-align: center; /* 紋章に合わせて中央寄せにしています */
+}
+
+/* 目立たせたい「 」の部分 */
+.emphasized-text {
+    display: block;
+    font-size: 26px;
+    color: #5d4037;
+    text-align: center;
+    margin: 50px 0;
+    padding: 30px;
+    border-top: 1px solid rgba(139, 109, 49, 0.3);
+    border-bottom: 1px solid rgba(139, 109, 49, 0.3);
+    font-weight: bold;
+}
+
+/* 黄金のボタン */
+.guild-btn {
+    display: block;
+    width: fit-content;
+    margin: 60px auto 0;
+    background: #c5a059;
+    color: #fff !important;
+    text-decoration: none;
+    padding: 18px 60px;
+    border-radius: 2px;
+    font-weight: bold;
+    border: 1px solid #8b6d31;
+    box-shadow: 0 4px 0 #8b6d31;
+}
+
+.guild-btn:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #8b6d31;
+}

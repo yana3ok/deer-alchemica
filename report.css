@@ -1,0 +1,153 @@
+/* --- 1. PC版レイアウト --- */
+.diary-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #fcf9f5;
+}
+
+/* 左：ギルマス固定 */
+.diary-visual-area {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 25vw;
+    height: calc(100vh - 130px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 500;
+}
+
+.guild-master-img {
+    height: 80vh;
+    width: auto;
+    object-fit: contain;
+}
+
+.magic-circle-bg {
+    position: absolute;
+    width: 200%;
+    opacity: 0.3;
+    animation: rotate-gear 40s linear infinite;
+    z-index: -1;
+}
+
+/* 中央：記事エリア */
+.diary-text-area { 
+    margin-left: 25vw; /* 左固定分の余白 */
+    margin-right: 300px; /* 右固定分の余白 */
+    flex: 1;
+    padding: 100px 60px 150px 60px;
+    background: #ffffff;
+    min-height: 100vh;
+    border-left: 1px solid #e0d0b0;
+    border-right: 1px solid #e0d0b0;
+}
+
+.page-title {
+    font-family: 'Lobster', cursive !important;
+    color: #8b6d31;
+    font-size: 42px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* 右：アーカイブ固定 */
+.report-archive {
+    position: fixed;
+    top: 200px;
+    right: 30px;
+    width: 240px;
+    background: #fdfaf2;
+    border: 1px solid #d2b48c;
+    padding: 25px;
+    z-index: 800;
+}
+
+/* 紹介カード */
+.master-intro-card {
+    background: rgba(30, 30, 30, 0.9);
+    border: 1px solid #c5a059;
+    padding: 15px;
+    margin-bottom: 40px;
+    border-radius: 4px;
+}
+
+.master-name {
+    font-family: 'Lobster', cursive !important;
+    color: #c5a059;
+    font-size: 20px;
+    border-bottom: 1px solid #c5a059;
+    margin-bottom: 8px;
+}
+
+.master-text { color: #fff; font-size: 13px; line-height: 1.6; }
+
+@media screen and (max-width: 1024px) {
+    /* 1. ギルマスを背景として一番奥に配置する */
+    .diary-visual-area {
+        position: fixed !important; /* 画面に固定はするけど... */
+        top: 70px !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100vh !important;
+        z-index: 1 !important;    /* ★数字を小さくして一番奥へ */
+        opacity: 0.8;             /* ★少し薄くして文字を読みやすくする */
+        pointer-events: none;     /* ★立ち絵越しに文字を触れるようにする */
+    }
+
+    .guild-master-img {
+        height: 70vh !important;  /* スマホの画面に合わせてサイズ調整 */
+        object-fit: contain;
+        margin-top: 50px;
+    }
+
+    /* 2. 記事エリアを透明にして背景を見せる */
+    .diary-text-area {
+        position: relative !important;
+        z-index: 10 !important;   /* ★文字エリアを立ち絵より手前に！ */
+        background: rgba(255, 255, 255, 0.7) !important; /* ★少し透けさせて魔法陣を見せる */
+        margin: 0 !important;
+        width: 100% !important;
+        padding: 100px 20px 100px 20px !important;
+        border: none !important;
+    }
+
+    /* 3. ギルマスの紹介カード（スマホでは記事の中に自然に流す） */
+    .master-intro-card {
+        position: relative !important;
+        width: 95% !important;
+        margin: 20px auto !important;
+        z-index: 20 !important;
+    }
+
+    /* 4. フッター（絶対固定の再確認） */
+    .footer {
+        position: fixed !important;
+        bottom: 0 !important;
+        z-index: 9999 !important; /* 何よりも手前！ */
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    /* 1. アーカイブ（浮いている箱）の固定を完全に解除する */
+    .report-archive {
+    position: relative !important; /* fixed（固定）から relative（通常）に変更 */
+    width: 90% !important;        /* 画面幅の90%くらいに広げる */
+    margin: 40px auto !important; /* 左右中央に配置 */
+    left: auto !important;        /* PC版の左固定を解除 */
+    top: auto !important;         /* PC版の上固定を解除 */
+}
+
+.diary-container {
+    display: block !important;
+    width: 100% !important;
+}
+
+    /* 2. もしメイン記事が狭い場合は幅を広げる */
+    .diary-text-area {
+    width: 100% !important;   /* 画面の端から端まで使う */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 20px 15px !important; /* 15px くらいの微調整で文字が端に寄りすぎないようにします */
+}
